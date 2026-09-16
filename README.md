@@ -1,3 +1,3 @@
-# Blog
+# Blog Demo
 
-This is just me following Django 5 by example to create a blog.
+This is a blog application based on the "Django 5 by Example" book by Antonio Melé
