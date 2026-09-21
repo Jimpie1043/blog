@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404, render
+from django.views.generic import ListView
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from .models import Post
 
@@ -20,6 +21,15 @@ def post_list(request):
         'blog/post/list.html',
         {'posts': posts}
     )
+    
+class PostListView(ListView):
+    """
+    Alternative post list view
+    """
+    queryset = Post.published.all()
+    context_object_name = 'posts'
+    paginate_by = 3
+    template_name = 'blog/post/list.html'
     
 def post_detail(request, year, month, day, post):
     post = get_object_or_404(
